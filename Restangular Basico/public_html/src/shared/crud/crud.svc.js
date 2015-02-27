@@ -10,6 +10,8 @@
 
 				this.fetchRecords = function () {
 					var self = this;
+                                        this.nuevo=false;
+                                        this.listado=true;
 					this.api.getList().then(function (data) {
 						$scope.records = data;
 						$scope.currentRecord = {};
@@ -19,10 +21,16 @@
                               
                                 
 				this.createRecord = function () {
+                                        this.riesgo=false;
 					this.editMode = true;
+                                        this.listado=false;
+                                        this.nuevo=true;
 					$scope.currentRecord = {};
 				};
 				this.saveRecord = function () {
+                                        this.nuevo=false;
+                                        this.listado=true;
+                                        this.riesgo=false;
 					var self = this;
 					if ($scope.currentRecord.id) {
 						$scope.currentRecord.put().then(function () {
@@ -43,6 +51,9 @@
 				this.editRecord = function (record) {
 					$scope.currentRecord = RestAngular.copy(record);
 					this.editMode = true;
+                                        this.nuevo=true;
+                                        this.listado=false;
+                                        this.riesgo=false;
 				};
 			}
 			;

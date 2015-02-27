@@ -38,13 +38,13 @@
 				</tr>
 			</thead>
 			<tbody>
-                        <div ng-repeat="record in records">
-				<tr ng-if="record.calificacion<3">
+                        <div>
+				<tr ng-repeat="record in records">
                                                                      
-					<td>{{record.nombre}}</td>
-					<td>{{record.profesor}}</td>
-					<td>{{record.salon}}</td>
-                                        <td>{{record.calificacion}}</td>
+					<td ng-if="record.calificacion<3">{{record.nombre}}</td>
+					<td ng-if="record.calificacion<3">{{record.profesor}}</td>
+					<td ng-if="record.calificacion<3">{{record.salon}}</td>
+                                        <td ng-if="record.calificacion<3">{{record.calificacion}}</td>
 				</tr>
                         </div>
 			</tbody>
